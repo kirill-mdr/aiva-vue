@@ -70,13 +70,13 @@ const cleanParams = () => {
 }
 
 const getOptions = async () => {
-  let result = await axios.get('http://176.113.83.99:5000/api/options')
+  let result = await axios.get('http://176.113.83.99/api/options')
   options.response = result.data;
   initParams()
 }
 
 const predict = async () => {
-  let response = await axios.post(`http://176.113.83.99:5000/api/predict`, selectedParams)
+  let response = await axios.post(`http://176.113.83.99/api/predict`, selectedParams)
   result.value = response.data.result
   console.log(result.value)
 }
