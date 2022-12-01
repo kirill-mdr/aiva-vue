@@ -100,7 +100,7 @@ onMounted(getOptions)
   width: 100%
 
   h2
-    margin: 15px 0
+    margin: 5px 0
     font-weight: 400
 
 .paramItem__container
