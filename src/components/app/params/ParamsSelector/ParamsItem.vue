@@ -26,6 +26,7 @@ const props = defineProps({
   cursor: pointer
   background: #F6F6F6
   transition: all .3s ease-in-out
+  border-radius: 6px
 
   &:hover
     background: #53b1c7
