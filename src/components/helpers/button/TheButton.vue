@@ -23,6 +23,7 @@ const props = defineProps({
   cursor: pointer
   transition: all .3s ease-in-out
   margin-right: 10px
+  border-radius: 6px
 
 .primary
   color: #3C93A7
