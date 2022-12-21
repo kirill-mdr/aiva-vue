@@ -1,12 +1,15 @@
 <template>
   <CoverSection/>
   <ParamsSection/>
+  <SliderSection/>
 </template>
 
 <script lang="ts" setup>
 
 import CoverSection from "@/components/sections/index/CoverSection.vue";
-import ParamsSection from "@/components/sections/index/ParamsSection.vue";</script>
+import ParamsSection from "@/components/sections/index/ParamsSection.vue";
+import SliderSection from "@/components/sections/index/SliderSection.vue";
+</script>
 
 <style lang="sass">
 
