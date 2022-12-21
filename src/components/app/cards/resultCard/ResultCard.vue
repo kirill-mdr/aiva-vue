@@ -70,9 +70,10 @@ const descriptions = [
 
   &__result
     color: #eee
-    margin: 16px 0
+    margin-top: 16px
 
   .btn
+    margin-top: 16px
     background: #5ab9d0
     color: #eee
 

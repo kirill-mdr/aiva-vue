@@ -21,7 +21,7 @@
 
 import LineChart from "@/components/app/chart/LineChart.vue";
 import {useStore} from "vuex";
-import {nextTick, ref} from "vue";
+import {nextTick, onMounted, ref} from "vue";
 
 const renderComponent = ref(true);
 
@@ -47,6 +47,8 @@ const setSpec = (title: string) => {
   setTimeout(forceRerender, 1500)
 
 }
+
+onMounted(() => setSpec('Data Analyst'))
 </script>
 
 
@@ -65,11 +67,13 @@ const setSpec = (title: string) => {
     border: 1px solid #dcdcdc
     flex: 0 0 auto
     width: 300px
-    border-radius: 8px
+    border-radius: 16px
 
     &-action
+
       transition: all .3s linear
-      padding: 32px
+      padding: 24px 32px
+      font-size: 20px
       cursor: pointer
 
   &__loading
@@ -87,5 +91,6 @@ const setSpec = (title: string) => {
   .active
     background: #3C93A7
     color: #eee
+    border-radius: 16px
 
 </style>
