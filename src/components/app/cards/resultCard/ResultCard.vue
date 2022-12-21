@@ -1,18 +1,26 @@
 <template>
   <div class="result-card">
-    <h1>{{ props.title }}</h1>
+    <h1 class="result-card__title">{{ props.title }}</h1>
     <img alt="avatar" class="result-card__img" src="@/assets/images/avatar.svg">
     <p class="result-card__description">{{ descriptions[index].desc }}</p>
+    <h1 v-if="store.state.predictedData !== 0" class="result-card__result">{{ store.state.predictedData }}$</h1>
+    <the-button type="primary" @click="store.dispatch('predict', selectedParams)">Получить результат</the-button>
   </div>
 </template>
 
 <script lang="ts" setup>
 import {defineProps} from "vue";
+import TheButton from "@/components/helpers/button/TheButton.vue";
+import {useStore} from "vuex";
 
 const props = defineProps({
   title: {type: String, required: true},
-  index: {type: Number, required: true}
+  index: {type: Number, required: true},
+  result: {type: Number, required: true},
+  selectedParams: {type: Array, required: true}
 })
+
+const store = useStore()
 const descriptions = [
   {
     id: 1,
@@ -40,18 +48,32 @@ const descriptions = [
   justify-content: flex-start
   align-items: center
   flex-direction: column
-  background: #F6F6F6
+  background: #3C93A7
+  color: #eee !important
   flex: 1 0 35%
   margin: 40px
   padding: 20px
   border-radius: 16px
   min-width: 400px
-  min-height: 400px
+  min-height: 100%
+
+  &__title
+    color: #eee
 
   &__description
     flex: 1 0 50%
+    color: #eee
 
   &__img
     width: 128px
     margin: 24px 0
+
+  &__result
+    color: #eee
+    margin: 16px 0
+
+  .btn
+    background: #5ab9d0
+    color: #eee
+
 </style>

@@ -2,15 +2,18 @@
   <nav class="navbar">
     <img alt="logo" class="navbar__logo" src="@/assets/images/logo.svg">
     <div class="items__section">
-      <div class="nav__item">Главная</div>
-      <div class="nav__item">Аналитика</div>
-      <div class="nav__item">Команда</div>
+      <div class="nav__item" @click="scrollTo('cover')">Главная</div>
+      <div class="nav__item" @click="scrollTo('params')">Аналитика</div>
+      <div class="nav__item" @click="scrollTo('chart')">Команда</div>
     </div>
   </nav>
 </template>
 
-<script>
-export default {}
+<script lang="ts" setup>
+
+const scrollTo = (id: string) => {
+  document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+};
 </script>
 
 <style lang="sass" scoped>
