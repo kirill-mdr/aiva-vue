@@ -1,44 +1,13 @@
 <template>
-  <div class="wrapper">
-    <section class="section">
-      <nav-bar/>
-      <div class="container">
-        <h1 class="title">Проанализируй <br> уровень <span style="color: #95CCD9">зарплат в IT</span></h1>
-        <h3 class="subtitle">Мы собрали данные об уровене зарплат ведущих специальностей в области
-          <br>Data Science c 2020-2022</h3>
-        <ArrowDown class="arrow_icon"/>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <ParamsContainer/>
-      </div>
-    </section>
-  </div>
+  <nav-bar/>
+  <router-view/>
 </template>
 
 <script setup>
 
-import NavBar from "@/components/helpers/NavBar";
-import ParamsContainer from "@/components/app/params/ParamsSelector/ParamsContainer";
-import ArrowDown from "@/components/icons/ArrowDown";</script>
+import NavBar from "@/components/helpers/NavBar";</script>
 
 <style lang="sass">
-
-
-.title
-  font-weight: 900
-  font-size: 72px
-  line-height: 1.2
-  margin-top: 120px
-
-.subtitle
-  margin: 80px 0
-  font-weight: 400
-  font-size: 34px
-
-.arrow_icon
-  animation: jumpingArrow 2s infinite ease-in-out
 
 
 </style>

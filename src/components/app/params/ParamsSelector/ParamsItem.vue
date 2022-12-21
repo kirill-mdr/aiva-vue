@@ -19,7 +19,7 @@ const props = defineProps({
   display: flex
   justify-content: center
   align-items: center
-  padding: 10px 20px
+  padding: 10px 15px
   flex: 1 0 auto
   margin: 10px 10px 10px 0
   font-weight: 300
