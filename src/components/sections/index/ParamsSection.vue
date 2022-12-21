@@ -1,5 +1,5 @@
 <template>
-  <section v-if="options.response" class="params">
+  <section v-if="options.response" id="params" class="params">
     <div class="container">
       <div class="params__wrapper">
         <div v-for="param in options.response" :key="param.title" class="params__row">
@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-      <ResultCard :index="selectedSpecIndex" :title="selectedSpec"/>
+      <ResultCard :index="selectedSpecIndex" :result="result" :selected-params="selectedParams" :title="selectedSpec"/>
     </div>
   </section>
 
@@ -31,6 +31,9 @@ import ResultCard from "@/components/app/cards/resultCard/ResultCard.vue";
 
 import axios from "axios";
 import {onMounted, reactive, ref} from "vue";
+import {useStore} from "vuex";
+
+const store = useStore()
 
 let options = reactive({response: []})
 let result = ref(0)
@@ -47,7 +50,7 @@ let selectedParams: SelectedParams = reactive({})
 const initParams = () => {
   options.response.map(item => {
     selectedParams[item.type] = []
-    for (let i = 0; i < item.data.length - 1; i++) {
+    for (let i = 0; i < item.data.length; i++) {
       i === 0 ? selectedParams[item.type][i] = 1
           : selectedParams[item.type][i] = 0
     }
@@ -58,6 +61,7 @@ const setParam = (type: string, index: number, length: number, title: string) =>
   if (type === 'spec') {
     selectedSpec.value = title
     selectedSpecIndex.value = index
+    store.commit('setSelectedSpec', title)
   }
   selectedParams[type] = []
   for (let i = 0; i < length; i++) {
@@ -76,10 +80,6 @@ const getOptions = async () => {
   initParams()
 }
 
-const predict = async () => {
-  let response = await axios.post(`http://176.113.83.99/api/predict`, selectedParams)
-  result.value = response.data.result
-}
 
 onMounted(initParams)
 onMounted(getOptions)

@@ -1,5 +1,5 @@
 <template>
-  <section class="cover">
+  <section id="cover" class="cover">
     <div class="container">
       <h1 class="cover__title">Проанализируй <br> уровень <span style="color: #95CCD9">зарплат в IT</span></h1>
       <h3 class="cover__subtitle">Мы собрали данные об уровене зарплат ведущих специальностей в области
